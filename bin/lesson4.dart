@@ -103,7 +103,7 @@ void main(List<String> args) {
 
   int index_microwave = 0;
   Function factory(String name_microwavem, int power) {
-    String model = '$name_microwavem-BOSCH-777 index = $index_microwave';
+    String model = '$name_microwavem- index = $index_microwave';
     index_microwave++;
 
     // Anonymous Function wraps in return(){}
@@ -114,8 +114,13 @@ void main(List<String> args) {
     };
   }
 
-  Function microwave = factory('Siemens', 850);
+  Function microwave = factory('Siemens RX800', 850);
   print(microwave('Spagetty', 3));
+  print(microwave('Potato salad', 2));
+// plus one microwave
+  Function newMicrowave = factory('BOCSH-1k', 1000);
+  print(newMicrowave('marshmallow soup', 1));
+
 // in return of factory Function we wrap a Anonymous Function.
 
   print('------------------------------------------------------------------');
