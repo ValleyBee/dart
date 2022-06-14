@@ -98,7 +98,7 @@ void main(List<String> args) {
 
   print('result netsted Function,result: ${result(5)})'); // put args to inner function
 
-  print('E X A M P L E - VI Closure Function Lexical scope. number of fibonacci');
+  print('E X A M P L E - Recursive Function Lexical scope. number of fibonacci');
 
   int fibonacci(int number) {
     // 0 1 1 2 3 5 8 13 21 34 55
