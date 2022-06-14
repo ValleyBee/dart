@@ -106,6 +106,7 @@ void main(List<String> args) {
     String model = '$name_microwavem-BOSCH-777 index = $index_microwave';
     index_microwave++;
     return (String dish, int mode) {
+      // body an anonymous Function.
       StringBuffer myStr = StringBuffer('Microwave model "$model" it`s Power = $power Watt');
       myStr.write(',warm a meal "$dish" in mode = $mode');
       return myStr;
@@ -114,6 +115,7 @@ void main(List<String> args) {
 
   Function microwave = factory('Siemens', 850);
   print(microwave('Spagetty', 3));
+// in return of factory Function we wrap a Anonymous Function.
 
   print('------------------------------------------------------------------');
   print('E X A M P L E - Recursive Function Lexical scope. number of fibonacci');
