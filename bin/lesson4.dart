@@ -112,6 +112,9 @@ void main(List<String> args) {
     };
   }
 
+  Function microwave = factory('Siemens', 850);
+  print(microwave('Spagetty', 3));
+
   print('E X A M P L E - Recursive Function Lexical scope. number of fibonacci');
 
   int fibonacci(int number) {
