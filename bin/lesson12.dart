@@ -27,10 +27,15 @@ void main(List<String> args) {
 // in return of factory Function we wrap a Anonymous Function.
   print('------------------------------------------------------------------');
   print('E X A M P L E - Degree - Function Closure');
+
+  Function calc = Degree(3);
+  print(calc(3));
 }
 
 // Degree closure func
 typedef int MyPow(int value);
+
+// changed Function Degree return type to MyPow
 MyPow Degree(int degree) {
   return (int value) => pow(value, degree).toInt();
 }
