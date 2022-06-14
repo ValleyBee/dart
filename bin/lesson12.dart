@@ -29,7 +29,9 @@ void main(List<String> args) {
   print('E X A M P L E - Degree - Function Closure');
 
   Function calc = Degree(3);
-  print(calc(3));
+  print(calc(3)); // 27
+  calc = Degree(8);
+  print(calc(3)); // 6561
 }
 
 // Degree closure func
