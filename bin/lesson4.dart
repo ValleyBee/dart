@@ -98,6 +98,20 @@ void main(List<String> args) {
 
   print('result netsted Function,result: ${result(5)})'); // put args to inner function
 
+  print('');
+  print('E X A M P L E - VI  Function Closure');
+
+  int index_microwave = 0;
+  Function factory(String name_microwavem, int power) {
+    String model = '$name_microwavem-BOSCH-777$index_microwave';
+    index_microwave++;
+    return (String dish, int mode) {
+      StringBuffer myStr = StringBuffer('Microwave model "$model" its Power $power Watt');
+      myStr.write(',warm a meal "$dish" in mode $mode');
+      return myStr;
+    };
+  }
+
   print('E X A M P L E - Recursive Function Lexical scope. number of fibonacci');
 
   int fibonacci(int number) {
