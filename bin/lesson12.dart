@@ -1,6 +1,6 @@
 import 'dart:math';
 
-// FUNCTIONS EXMPS
+// FUNCTIONS Closure. EXMPS
 void main(List<String> args) {
   print('E X A M P L E - MICROWAVE factory - Function Closure');
 
