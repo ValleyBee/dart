@@ -103,12 +103,12 @@ void main(List<String> args) {
 
   int index_microwave = 0;
   Function factory(String name_microwavem, int power) {
-    String model = '$name_microwavem- index = $index_microwave';
+    String model = '$name_microwavem- idx = $index_microwave';
     index_microwave++;
 
     // Anonymous Function wraps in return(){}
     return (String dish, int mode) {
-      StringBuffer myStr = StringBuffer('Microwave model "$model" it`s Power = $power Watt');
+      StringBuffer myStr = StringBuffer('Microwave = "$model" Power = $power Watt');
       myStr.write(',warm a meal "$dish" in mode = $mode');
       return myStr;
     };
