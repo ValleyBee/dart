@@ -161,7 +161,7 @@ void main(List<String> args) {
 
   print('${bigLetter.runtimeType}');
 
-  print('E X A M P L E - VIII typedef Function');
+  print('E X A M P L E - VIII typedef Function - Fat Arrow Notation');
   print(sub(1, 1, 2, add));
 } // end of MAIN
 
