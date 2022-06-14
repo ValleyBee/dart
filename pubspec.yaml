@@ -6,6 +6,7 @@ version: 1.0.0
 environment:
   sdk: '>=2.16.2 <3.1.0'
 
+
 uses-material-design: true
 # dependencies:
 #   path: ^1.8.0
