@@ -7,10 +7,15 @@ void main(List<String> args) {
   }
   print(result); // [0,1,2,3,4,5,6,7,8,9]
 
-  // for (int value in myGeneratorAsync()) {
-  //   result.add(value);
-  // }
+  result.clear();
 
+  for (int value in myGeneratorSync2(30)) {
+    result.add(value);
+  }
+
+  print(result);
+
+// ASYNC
   myGeneratorAsync().forEach((element) {
     print(element);
   });
@@ -24,12 +29,14 @@ Iterable<int> myGeneratorSync() sync* {
   }
 }
 
-Iterable<int> myGeneratorSunc2(int value) sync* {
+// SYNC Generating Func 2
+Iterable<int> myGeneratorSync2(int value) sync* {
   int k = value;
-  while (k >= value) {
-    if (value % 4 == 0) {
-      yield --k;
+  while (k >= 0) {
+    if (k % 4 == 0) {
+      yield k;
     }
+    k--;
   }
 }
 
