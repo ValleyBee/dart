@@ -22,12 +22,25 @@ void main(List<String> args) {
   print(result); // 28, 24, 20, 16, 12, 8, 4, 0
   result.clear();
 
-  // forEach instead of for loop
+  // Output ad forEach instead of for loop
 
   myGeneratorSync3(30).forEach((element) {
     result.add(element);
   });
-  print('forEach $result');
+  print('forEach = $result');
+
+  result.clear();
+// if we need to get a simple list for output
+
+  Iterable<int> result1 = myGeneratorSync2(20);
+  result1.toList();
+  print('a simple list = $result1');
+
+// same as above
+  List<int> result2 = myGeneratorSync2(20).toList();
+  print('a simple list2 = $result2');
+  result2[0];
+  result1[0];
 
 // ASYNC
   myGeneratorAsync().forEach((element) {
