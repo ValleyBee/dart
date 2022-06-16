@@ -30,17 +30,20 @@ void main(List<String> args) {
   print('forEach = $result');
 
   result.clear();
-// if we need to get a simple list for output
 
-  Iterable<int> result1 = myGeneratorSync2(20);
-  result1.toList();
-  print('a simple list = $result1');
+// if we need to get list of Iterable output.
 
-// same as above
-  List<int> result2 = myGeneratorSync2(20).toList();
-  print('a simple list2 = $result2');
-  result2[0];
-  result1[0];
+// got a list from Iterable output
+  List<int> result1 = myGeneratorSync2(20).toList();
+  print('got list  = $result1');
+
+  var result3 = myGeneratorSync3(20);
+  var out = result3.toList();
+  print(out);
+
+  result1.forEach((element) {
+    print(element);
+  });
 
 // ASYNC
   myGeneratorAsync().forEach((element) {
