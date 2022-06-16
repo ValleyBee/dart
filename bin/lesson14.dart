@@ -38,8 +38,14 @@ void main(List<String> args) {
   print('got a list  = $result1');
 
 // ASYNC
-  myGeneratorAsync().forEach((element) {
-    print(element);
+  // myGeneratorAsync().forEach((element) {
+  //   print(element);
+  // });
+
+  // listen a Stream
+  Stream<int> sequens = myGeneratorAsync(30);
+  sequens.listen((event) {
+    print(event);
   });
 }
 
@@ -74,9 +80,12 @@ Iterable<int> myGeneratorSync3(int value) sync* {
 
 // ASYNC Generation Func
 
-Stream<int> myGeneratorAsync() async* {
+Stream<int> myGeneratorAsync(int value) async* {
   int k = 0;
-  while (k < 10) {
-    yield k++;
+  while (k < value) {
+    if (k % 2 == 0) {
+      yield k;
+    }
+    k++;
   }
 }
