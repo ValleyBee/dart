@@ -11,8 +11,6 @@ to fix it we can give an alias name, use operator 'as' see next line:
 
 import 'src/calc_lib_new.dart' as newcalclib;
 
-// using own lib
-
 void main(List<String> args) {
 // methods from own lib calc_dart
   print(add(2.1, 2));
@@ -21,6 +19,6 @@ void main(List<String> args) {
   print(mul(2, 2));
   print(powMy(2.1, 2));
 
-// methods from own lib calc_dart
+// methods from own lib  calc_lib_new
   print(newcalclib.add(2, 2));
 }
