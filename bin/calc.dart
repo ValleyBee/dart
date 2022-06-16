@@ -19,6 +19,7 @@ void main(List<String> args) {
   print(mul(2, 2));
   print(powMy(2.1, 2));
 
-// methods from own lib  calc_lib_private
+// call method which calls another method _add(a + b) * 10)) has private modifier in own lib calc_lib_private
+
   print(newcalclib.add(2, 2));
 }
