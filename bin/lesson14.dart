@@ -22,7 +22,7 @@ void main(List<String> args) {
   print(result); // 28, 24, 20, 16, 12, 8, 4, 0
   result.clear();
 
-  // Output ad forEach instead of for loop
+  // Output byforEach instead of for loop
 
   myGeneratorSync3(30).forEach((element) {
     result.add(element);
@@ -31,11 +31,11 @@ void main(List<String> args) {
 
   result.clear();
 
-// if we need to get list of Iterable output.
+// if we need to get list from Generating Iterable output.
 
 // got a list from Iterable output
   List<int> result1 = myGeneratorSync2(20).toList();
-  print('got list  = $result1');
+  print('got a list  = $result1');
 
   var result3 = myGeneratorSync3(20);
   var out = result3.toList();
