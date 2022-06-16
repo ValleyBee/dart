@@ -48,12 +48,11 @@ Iterable<int> myGeneratorSync2(int value) sync* {
 
 // SYNC Generating Func 3  (reverse)
 Iterable<int> myGeneratorSync3(int value) sync* {
-  int k = value;
-  while (k >= 0) {
-    if (k % 4 == 0) {
-      yield k;
+  while (value >= 0) {
+    if (value % 4 == 0) {
+      yield value;
     }
-    k--;
+    value--;
   }
 }
 
