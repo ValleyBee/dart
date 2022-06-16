@@ -21,6 +21,11 @@ void main(List<String> args) {
 
   print(result); // 28, 24, 20, 16, 12, 8, 4, 0
 
+  // forEach
+  myGeneratorSync3(30).forEach((element) {
+    result.add(element);
+  });
+
 // ASYNC
   myGeneratorAsync().forEach((element) {
     print(element);
