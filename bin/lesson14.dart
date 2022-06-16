@@ -31,19 +31,11 @@ void main(List<String> args) {
 
   result.clear();
 
-// if we need to get list from Generating Iterable output.
+// if we need to get list from Generating Iterable.
 
 // got a list from Iterable output
   List<int> result1 = myGeneratorSync2(20).toList();
   print('got a list  = $result1');
-
-  var result3 = myGeneratorSync3(20);
-  var out = result3.toList();
-  print(out);
-
-  result1.forEach((element) {
-    print(element);
-  });
 
 // ASYNC
   myGeneratorAsync().forEach((element) {
