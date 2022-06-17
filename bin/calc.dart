@@ -3,6 +3,8 @@
 // 2nd import Packages lib, package:
 // 3rd import Own lib.
 
+import 'package:dart_application_2/src/my_add.dart'; // own libs located in /lib/src/ can be imported only as a package:
+
 import 'src/calc_lib.dart';
 
 /* 
