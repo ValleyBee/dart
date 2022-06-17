@@ -3,6 +3,8 @@
 // 2nd import Packages lib, package:
 // 3rd import Own lib.
 
+// Recomended create own lib in /lib/src in case use as API
+
 import 'package:dart_application_2/src/my_add.dart'; // own libs located in /lib/src/ can be imported only as a package:
 
 import 'src/calc_lib.dart';
