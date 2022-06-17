@@ -3,9 +3,8 @@
 // 2nd import Packages lib, package:
 // 3rd import Own lib.
 
-// Recomended create own lib in /lib/src in case use as API
-
-import 'package:dart_application_2/src/my_add.dart'; // own libs located in /lib/src/ can be imported only as a package:
+// lib use as API all function in one file
+import 'package:dart_application_2/calc_API.dart';
 
 import 'src/calc_lib.dart';
 
@@ -31,4 +30,9 @@ void main(List<String> args) {
 // call method which calls another method _add(a + b) * 10)) has private modifier in own lib calc_lib_private
 
   print(newcalclib.add(2, 2));
+
+// methods from API /lib/src/calc_API
+  print(my_add(5, 5)); // 10.0
+  print(my_mul(5, 5)); // 25.0
+  print(my_sub(5, 5)); // 0.0
 }
