@@ -1,7 +1,7 @@
 // Rule of importation Libs
 // 1st import Core lib, dart:
-// 2ns import Packages lib, package:
-// 3rd import Own lib
+// 2nd import Packages lib, package:
+// 3rd import Own lib.
 
 import 'src/calc_lib.dart';
 
