@@ -14,8 +14,8 @@ in `lib/`, `lib/src`, `bin/src` and example unit test in `test/`.
 	     		cacl_API:
 		    		path: ../cacl_API
 
-# FUNCTIONS - LESSONS 4,12,13,14
-#### LESSON 4
+## FUNCTIONS LESSONS 4,12,13,14
+#### Lesson 4
 Regular Functon
 Annonymus Function
 Annonymus Function with Lambda
@@ -23,11 +23,11 @@ Annonymus Function with Lambda
 Netsted Function
 Function Lexical Closure
 typedef Function
-#### LESSON 13
+#### Lesson 13
 DIRECT RECURSION FUNCTIONS
 INDIRECT RECURSION FUNCTIONS
 
-#### LESSON 14
+#### Lesson 14
   #### GENERATING FUNCTION SYNC & ASYNC
 
   Synchronous Generator in Dart
