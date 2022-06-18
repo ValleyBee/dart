@@ -1,5 +1,6 @@
+# Lessons of Dart
 A sample command-line application with an entrypoint in `bin/`, library code
-in `lib/`, and example unit test in `test/`.
+in `lib/`, `lib/src`, `bin/src` and example unit test in `test/`.
 
 
 # CALC
