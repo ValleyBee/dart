@@ -3,7 +3,7 @@ in `lib/`, and example unit test in `test/`.
 
 
 # CALC
-  CREATING OWN LIBS AND PACKAGES
+  ### CREATING OWN LIBS AND PACKAGES
   1. API PACKAGES. Recomended create own lib in /lib/src in case use as API.
   2. Own libs located in /lib/src/ can be imported only as a package: ( import 'package:dart_application_2/src/my_add.dart'; ) (calc_API.dart)
   3. We can export some func or all functionality of libs using ( export 'src/my_add.dart'; ) in file API (calc_API.dart)
@@ -14,7 +14,7 @@ in `lib/`, and example unit test in `test/`.
 		    		path: ../cacl_API
 
 # LESSON14
- GENERATING FUNCTION SYNC & ASYNC
+ ### GENERATING FUNCTION SYNC & ASYNC
 
   Synchronous Generator in Dart
  The synchronous generator returns an iterable object i.e. it returns the collection of values, or “elements”, that can be accessed sequentially.
