@@ -14,14 +14,12 @@ in `lib/`, and example unit test in `test/`.
 		    		path: ../cacl_API
 
 # LESSON14
-// GENERATING FUNCTION SYNC & ASYNC
+ GENERATING FUNCTION SYNC & ASYNC
 
-/*
- Synchronous Generator in Dart
+  Synchronous Generator in Dart
  The synchronous generator returns an iterable object i.e. it returns the collection of values, or “elements”, that can be accessed sequentially.
 
-
-Asynchronous Generator in Dart
+ ### Asynchronous Generator in Dart
 The asynchronous generator returns a stream object. A Stream provides a way to receive a sequence of events. Each event is either a data event, also called an element of the stream, or an error event, which is a notification that something has failed. 
- */
+
 	
