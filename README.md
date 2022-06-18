@@ -24,13 +24,13 @@ Netsted Function
 Function Lexical Closure
 typedef Function
 #### Lesson 13
-DIRECT RECURSION FUNCTIONS
+DIRECT RECURSION FUNCTIONS,
 INDIRECT RECURSION FUNCTIONS
 
 #### Lesson 14
-  #### GENERATING FUNCTION SYNC & ASYNC
+  #### GENERATING FUNCTION, SYNC & ASYNC
 
-  Synchronous Generator in Dart
+  #### Synchronous Generator in Dart
  The synchronous generator returns an iterable object i.e. it returns the collection of values, or “elements”, that can be accessed sequentially.
 
   #### Asynchronous Generator in Dart
