@@ -14,7 +14,7 @@ in `lib/`, `lib/src`, `bin/src` and example unit test in `test/`.
 	     		cacl_API:
 		    		path: ../cacl_API
 
-## FUNCTIONS LESSONS 4,12,13,14
+## FUNCTIONS Lessons 4,12,13,14
 #### Lesson 4
 Regular Functon
 Annonymus Function
