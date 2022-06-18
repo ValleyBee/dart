@@ -28,7 +28,7 @@ DIRECT RECURSION FUNCTIONS,
 INDIRECT RECURSION FUNCTIONS
 
 #### Lesson 14
-  #### GENERATING FUNCTION, SYNC & ASYNC
+GENERATING FUNCTION, SYNC & ASYNC
 
   #### Synchronous Generator in Dart
  The synchronous generator returns an iterable object i.e. it returns the collection of values, or “elements”, that can be accessed sequentially.
