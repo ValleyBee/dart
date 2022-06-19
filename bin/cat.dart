@@ -7,4 +7,8 @@ class Cat extends Animal {
   void helloMaster() {
     print('animal - $name says Hello,Master!');
   }
+
+  void purr() {
+    print('$name: Meoooooow');
+  }
 }
