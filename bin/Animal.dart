@@ -3,7 +3,7 @@ class Animal {
   int? age;
   Animal({this.name, this.age});
 
-  void helloMaster() {
+  void helloMaster(Animal animanl) {
     print("animal $name says Hello,Master!!");
   }
 }
