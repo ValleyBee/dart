@@ -11,7 +11,11 @@ void main(List<String> args) {
 
   animal.forEach((element) {
     element.helloMaster();
-  });
+  }); /* animal: the cat, name: kitty, says Hello,Master!
+animal: the cat, name: Zuzzy, says Hello,Master!
+animal: the dog, name: Wolf, says Hello,Master!
+animal: the dog, name: Sharp, says Hello,Master!
+*/
 
   //print(list);
 }
