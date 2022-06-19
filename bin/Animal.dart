@@ -3,8 +3,8 @@ class Animal {
   int? age;
   Animal(this.name, this.age);
 
-  void helloMaster(Animal animal) {
-    print("Animal $name says Hello,Master!!");
+  void helloMaster() {
+    print("Animal: the animal, name: $name says Hello,Master!!");
   }
 
   // @override

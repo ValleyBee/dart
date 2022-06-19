@@ -2,6 +2,9 @@ import 'animal.dart';
 import 'cat.dart';
 
 void main(List<String> args) {
-  Animal cat = new Cat('kitty', 1);
-  cat.helloMaster(cat);
+  List<Animal> animal = [];
+  animal.add(Cat('kitty', 1));
+  animal.add(Cat('Zuzzy', 2));
+
+  animal[0].helloMaster();
 }
