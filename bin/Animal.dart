@@ -3,7 +3,7 @@ class Animal {
   int? age;
   Animal({this.name, this.age});
 
-  void HelloMaster(String name, int age) {
+  void HelloMaster() {
     print("animal $name says Hello,Master!!");
   }
 }
