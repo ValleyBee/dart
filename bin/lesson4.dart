@@ -98,7 +98,7 @@ void main(List<String> args) {
 
   print('result netsted Function,result: ${result(5)})'); // put args to inner function
 
-  print('------------------------------------------------------------------');
+  print('-' * 30);
   print('E X A M P L E - MICROWAVE factory - Function Closure');
 
   int index_microwave = 0;
@@ -123,7 +123,7 @@ void main(List<String> args) {
 
 // in return of factory Function we wrap a Anonymous Function.
 
-  print('------------------------------------------------------------------');
+  print('-' * 30);
   print('E X A M P L E - Recursive Function Lexical scope. number of fibonacci');
 
   int fibonacci(int number) {

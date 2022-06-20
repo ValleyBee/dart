@@ -13,19 +13,19 @@ void main(List<String> args) {
 
   // print('FIRST DEAL');
   // print(deck.deal(5));
-  // print('----------------------------------------------');
+  // print('-' * 30);
   // print(deck);
 
   // print('');
   // print('SECOND DEAL');
   // print(deck.deal(5));
-  // print('----------------------------------------------');
+  // print('-' * 30);
   // print(deck);
 
   // print('');
   // print('THIRD DEAL');
   // print(deck.deal(5));
-  // print('----------------------------------------------');
+  // print('-' * 30);
   // print(deck);
 }
 

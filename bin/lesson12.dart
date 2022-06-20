@@ -25,7 +25,7 @@ void main(List<String> args) {
   print(newMicrowave('marshmallow soup', 1));
 
 // in return of factory Function we wrap a Anonymous Function.
-  print('------------------------------------------------------------------');
+  print('-' * 30);
   print('E X A M P L E - Degree - Function Closure');
 
   Function calc = Degree(3);
