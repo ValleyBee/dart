@@ -1,10 +1,9 @@
 import 'dart:math';
-
 import 'animal.dart';
 import 'main.dart';
 
 class Cat extends Animal {
-  Cat(String name, int, age, int radomAge()) : super(name, age);
+  Cat(String name, int, age) : super(name, age);
 
   @override
   void helloMaster() {
@@ -20,8 +19,8 @@ class Cat extends Animal {
     print('$name: Meoooooowwwww');
   }
 
-  // int randomAge() {
-  //   Random age = new Random();
-  //   return age.nextInt(10);
-  // }
+  int randomAge() {
+    Random age = new Random();
+    return age.nextInt(10);
+  }
 }
