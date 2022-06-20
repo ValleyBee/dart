@@ -10,6 +10,8 @@ abstract class StorageFacilitySystem {
 }
 
 class Box implements StorageFacilitySystem {
+  Box(this.weightLimitBox);
+
   List<Item> itemList = [];
   late final double weightLimitBox;
 
@@ -31,4 +33,11 @@ class Box implements StorageFacilitySystem {
     }
     return weightLimitBox;
   }
+}
+
+void main(List<String> args) {
+  Box box = new Box(18);
+  StorageFacilitySystem storageFacilitySystem = box;
+  storageFacilitySystem.addItem(Item('book', 2));
+  storageFacilitySystem.addItem(Item('magazin', 1));
 }
