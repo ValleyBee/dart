@@ -1,3 +1,4 @@
+// public child class of parent Animal
 import 'animal.dart';
 
 class Dog extends Animal {

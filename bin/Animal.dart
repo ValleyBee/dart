@@ -1,3 +1,4 @@
+// public superclass
 import 'dart:math';
 
 class Animal {
@@ -6,6 +7,7 @@ class Animal {
   late int range;
   Animal(String name, int range) {
     this.name = name;
+
     if (range > 20) {
       print('Animals can`t live for so long = $range, it will be change to a max: 13');
       range = 13;

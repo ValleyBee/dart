@@ -1,7 +1,4 @@
-import 'dart:math';
-
-import 'package:test/expect.dart';
-
+// public main class creating instance of classes Animal,Cat,Dog
 import 'animal.dart';
 import 'cat.dart';
 import 'dog.dart';

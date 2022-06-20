@@ -1,6 +1,6 @@
-import 'dart:math';
+// public child class of parent Animal
+
 import 'animal.dart';
-import 'main.dart';
 
 class Cat extends Animal {
   // Cat(String name, int age, [int? a]) : super(name, age);
