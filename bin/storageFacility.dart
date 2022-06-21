@@ -5,6 +5,7 @@ class Item {
   Item(this.name, this.weight);
 }
 
+// Interface
 abstract class StorageFacilitySystem {
   void addItem(Item item);
   double facilityWeight();
@@ -69,14 +70,15 @@ class BigBox implements StorageFacilitySystem {
 void main(List<String> args) {
   Box box = new Box(23.00); // capacity
   StorageFacilitySystem storageFacilitySystem = box;
-
-  storageFacilitySystem.addItem(Item('Book', 2));
-  storageFacilitySystem.addItem(Item('Magazin', 1));
+  // Item item = new Item('test', 11);
+  // storageFacilitySystem.addItem(item);
+  storageFacilitySystem.addItem(new Item('Book', 2));
+  storageFacilitySystem.addItem(new Item('Magazin', 1));
 
   BigBox bigBox = new BigBox(45.00); // capacity
   storageFacilitySystem = bigBox;
-  storageFacilitySystem.addItem(Item('Sets of Books', 20));
-  storageFacilitySystem.addItem(Item('Sets of Magazins', 15));
+  storageFacilitySystem.addItem(new Item('Sets of Books', 20));
+  storageFacilitySystem.addItem(new Item('Sets of Magazins', 15));
 
   // TotalWeight method
   double totalWeight(StorageFacilitySystem storage) {
