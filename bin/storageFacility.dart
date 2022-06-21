@@ -1,3 +1,4 @@
+// Example of use Abstract class as interface and Implimentation it
 class Item {
   late final String name;
   late double weight;
