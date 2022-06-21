@@ -66,15 +66,15 @@ class BigBox implements StorageFacilitySystem {
 }
 
 void main(List<String> args) {
-  Box box = new Box(23.00);
+  Box box = new Box(23.00); // capacity
   StorageFacilitySystem storageFacilitySystem = box;
   storageFacilitySystem.addItem(Item('book', 2));
   storageFacilitySystem.addItem(Item('magazin', 1));
 
-  BigBox bigBox = new BigBox(45.00);
+  BigBox bigBox = new BigBox(45.00); // capacity
   storageFacilitySystem = bigBox;
-  storageFacilitySystem.addItem(Item('Sets of books', 10));
-  storageFacilitySystem.addItem(Item('Sets of magazin', 10));
+  storageFacilitySystem.addItem(Item('Sets of books', 20));
+  storageFacilitySystem.addItem(Item('Sets of magazins', 15));
 
   // TotalWeight method
   double totalWeight(StorageFacilitySystem storage) {
