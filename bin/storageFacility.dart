@@ -10,10 +10,10 @@ abstract class StorageFacilitySystem {
 }
 
 class Box implements StorageFacilitySystem {
+  late final double weightLimitBox;
   Box(this.weightLimitBox);
 
   List<Item> itemList = [];
-  late final double weightLimitBox;
 
   @override
   void addItem(Item item) {
