@@ -76,12 +76,14 @@ void main(List<String> args) {
   storageFacilitySystem.addItem(Item('Sets of books', 10));
   storageFacilitySystem.addItem(Item('Sets of magazin', 10));
 
-  // TotalWeight
-  double totalWeight;
-  storageFacilitySystem = box;
-  totalWeight = storageFacilitySystem.facilityWeight();
-  print(totalWeight);
-  storageFacilitySystem = bigBox;
-  totalWeight = storageFacilitySystem.facilityWeight();
-  print(totalWeight);
+  // TotalWeight method
+  double totalWeight(StorageFacilitySystem storage) {
+    double totalWeight;
+    storageFacilitySystem = storage;
+    totalWeight = storageFacilitySystem.facilityWeight();
+    return totalWeight;
+  }
+
+  print(totalWeight(box));
+  print(totalWeight(bigBox));
 }
