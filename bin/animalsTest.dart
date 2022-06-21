@@ -1,4 +1,4 @@
-// public main class creating instance of classes Animal,Cat,Dog
+// public main class creating instance of classes animal,Cat,Dog
 import 'animal.dart';
 import 'cat.dart';
 import 'dog.dart';
