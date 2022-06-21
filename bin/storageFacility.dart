@@ -12,7 +12,6 @@ abstract class StorageFacilitySystem {
 class Box implements StorageFacilitySystem {
   late final double weightLimitBox;
   Box(this.weightLimitBox);
-
   List<Item> itemList = [];
 
   @override
@@ -28,16 +27,19 @@ class Box implements StorageFacilitySystem {
 
   @override
   double facilityWeight() {
+    double totalBoxWeight = 0;
     for (var item in itemList) {
-      weightLimitBox = weightLimitBox + item.weight;
+      totalBoxWeight = totalBoxWeight + item.weight;
     }
-    return weightLimitBox;
+    return totalBoxWeight;
   }
 }
 
 void main(List<String> args) {
-  Box box = new Box(18);
+  Box box = new Box(18.00);
   StorageFacilitySystem storageFacilitySystem = box;
   storageFacilitySystem.addItem(Item('book', 2));
   storageFacilitySystem.addItem(Item('magazin', 1));
+  double totalWeight = storageFacilitySystem.facilityWeight();
+  print(totalWeight);
 }
