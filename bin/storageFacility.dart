@@ -20,9 +20,9 @@ class Box implements StorageFacilitySystem {
     double currentFacilityWeight = facilityWeight();
     if ((currentFacilityWeight + item.weight) < weightLimitBox) {
       itemList.add(item);
-      print('item add successfully');
+      print('${item.name} added successfully');
     } else {
-      print('item is too big');
+      print('${item.name} too big');
     }
   }
 
@@ -49,9 +49,9 @@ class BigBox implements StorageFacilitySystem {
     double currentFacilityWeight = facilityWeight();
     if ((currentFacilityWeight + item.weight) < weightLimitBigBox) {
       itemList.add(item);
-      print('item add successfully');
+      print('${item.name} added successfully');
     } else {
-      print('item is too big');
+      print('${item.name} too big');
     }
   }
 
@@ -68,13 +68,14 @@ class BigBox implements StorageFacilitySystem {
 void main(List<String> args) {
   Box box = new Box(23.00); // capacity
   StorageFacilitySystem storageFacilitySystem = box;
-  storageFacilitySystem.addItem(Item('book', 2));
-  storageFacilitySystem.addItem(Item('magazin', 1));
+
+  storageFacilitySystem.addItem(Item('Book', 2));
+  storageFacilitySystem.addItem(Item('Magazin', 1));
 
   BigBox bigBox = new BigBox(45.00); // capacity
   storageFacilitySystem = bigBox;
-  storageFacilitySystem.addItem(Item('Sets of books', 20));
-  storageFacilitySystem.addItem(Item('Sets of magazins', 15));
+  storageFacilitySystem.addItem(Item('Sets of Books', 20));
+  storageFacilitySystem.addItem(Item('Sets of Magazins', 15));
 
   // TotalWeight method
   double totalWeight(StorageFacilitySystem storage) {
