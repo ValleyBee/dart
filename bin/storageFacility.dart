@@ -9,6 +9,7 @@ abstract class StorageFacilitySystem {
   double facilityWeight();
 }
 
+// BOX
 class Box implements StorageFacilitySystem {
   late final double weightLimitBox;
   Box(this.weightLimitBox);
@@ -34,12 +35,53 @@ class Box implements StorageFacilitySystem {
     return totalBoxWeight;
   }
 }
+//END BOX
+
+// Big Box
+
+class BigBox implements StorageFacilitySystem {
+  late final double weightLimitBigBox;
+  BigBox(this.weightLimitBigBox);
+  List<Item> itemList = [];
+
+  @override
+  void addItem(Item item) {
+    double currentFacilityWeight = facilityWeight();
+    if ((currentFacilityWeight + item.weight) < weightLimitBigBox) {
+      itemList.add(item);
+      print('item add successfully');
+    } else {
+      print('item is too big');
+    }
+  }
+
+  @override
+  double facilityWeight() {
+    double totalBoxWeight = 0;
+    for (var item in itemList) {
+      totalBoxWeight = totalBoxWeight + item.weight;
+    }
+    return totalBoxWeight;
+  }
+}
 
 void main(List<String> args) {
-  Box box = new Box(18.00);
+  Box box = new Box(23.00);
   StorageFacilitySystem storageFacilitySystem = box;
   storageFacilitySystem.addItem(Item('book', 2));
   storageFacilitySystem.addItem(Item('magazin', 1));
-  double totalWeight = storageFacilitySystem.facilityWeight();
+
+  BigBox bigBox = new BigBox(45.00);
+  storageFacilitySystem = bigBox;
+  storageFacilitySystem.addItem(Item('Sets of books', 10));
+  storageFacilitySystem.addItem(Item('Sets of magazin', 10));
+
+  // TotalWeight
+  double totalWeight;
+  storageFacilitySystem = box;
+  totalWeight = storageFacilitySystem.facilityWeight();
+  print(totalWeight);
+  storageFacilitySystem = bigBox;
+  totalWeight = storageFacilitySystem.facilityWeight();
   print(totalWeight);
 }
