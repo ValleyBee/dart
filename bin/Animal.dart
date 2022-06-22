@@ -19,7 +19,7 @@ class Animal {
     print("Animal: the animal, name: $name says Hello,Master!!");
   }
 
-// generating random age for Object of Animals
+// method generating random age for Objects of Animal
   int randomAge(int range) {
     Random age = new Random();
     return age.nextInt(range);

@@ -1,4 +1,4 @@
-// public child class of parent Animal
+// public child class of parent superclass Animal
 import 'animal.dart';
 
 class Dog extends Animal {

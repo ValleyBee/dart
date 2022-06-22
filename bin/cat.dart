@@ -1,4 +1,4 @@
-// public child class of parent Animal
+// public child class of parent superclass Animal
 
 import 'animal.dart';
 
@@ -12,10 +12,6 @@ class Cat extends Animal {
     print('animal: the cat, name: $name, says  Hello,Master!, age: $age');
   }
 
-  // @override
-  // String toString() {
-  //   return 'the cat';
-  // }
   void purr() {
     print('$name: Meoooooowwwww');
   }
