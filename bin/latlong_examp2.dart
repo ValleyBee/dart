@@ -1,13 +1,22 @@
-import 'dart:convert';
-
 import 'package:latlong2/latlong.dart';
-import 'latlong_convert.dart';
+
+// type aliases
+typedef json = Map<String, double>;
+
+extension JsonPosition on LatLng {
+  json toJson() => {'latitude': latitude, 'longitude': longitude};
+
+  LatLng fromJson(json data) {
+    return LatLng(data['latitude'] as double, data['longitude'] as double);
+  }
+
+  void fronJson2(json data) {
+    latitude = data['latitude'] as double;
+    longitude = data['longitude'] as double;
+  }
+}
+
+// import 'latlong_convert.dart';
 
 // 49.8397° N, 24.0297° E
-void main(List<String> args) {
-  LatLng positions = new LatLng(49.8397, 24.0297);
-
-  Map json3 = positions._toJson(); // call a new method which we extensed
-
-  print(jsonEncode(json3));
-}
+void main(List<String> args) {}
