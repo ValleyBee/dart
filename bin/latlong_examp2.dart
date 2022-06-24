@@ -24,7 +24,7 @@ extension JsonPosition on LatLng {
 
 // 49.8397° N, 24.0297° E
 void main(List<String> args) {
-  LatLng originPosition = new LatLng(23.333, 44.333); //----------------
+  LatLng originPosition = new LatLng(23.333, 44.333);
   json pos =
       originPosition._toJson(); // Objec to Map({}) format {latitude: 23.333, longitude: 44.333}
   print(
