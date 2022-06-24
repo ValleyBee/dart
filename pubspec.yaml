@@ -14,4 +14,6 @@ uses-material-design: true
 dev_dependencies:
   lints: ^2.0.0
   test: ^1.16.0
-dependencies: {postgres: ^2.4.3}
+dependencies: 
+   postgres: ^2.4.3
+   latlong2: ^0.8.0
