@@ -11,7 +11,7 @@ extension JsonPosition on LatLng {
 
   LatLng _fromJson(json data) {
     return new LatLng(data['latitude'] as double,
-        data['longitude-'] as double); /*  method from Map() format to Object of class type */
+        data['longitude-'] as double); /*  method from Map() format to instanse  of class  */
   }
 
   void fromJsonChange(json data) {
@@ -27,14 +27,15 @@ void main(List<String> args) {
   LatLng originPosition = new LatLng(23.333, 44.333);
   json pos =
       originPosition._toJson(); // Objec to Map({}) format {latitude: 23.333, longitude: 44.333}
-  print('originPosition as Object: $originPosition'); // LatLng(latitude:23.333, longitude:44.333)
-  print('local var pos before change: $pos');
+  print(
+      'ref var type Class originPosition value: $originPosition'); // LatLng(latitude:23.333, longitude:44.333)
+  print('ref var pos type Map<> value before change: $pos');
   pos['latitude'] = 77.777; // change latitude
-  print('var pos after change: $pos'); // Map({})
-  print('originPosition as Object before change: $originPosition');
+  print('pos value lat after changed: $pos'); // Map({})
+  print('ref var type Class originPosition value before change: $originPosition');
 
   originPosition.fromJsonChange(pos); // change originalPosition of latitude
-  print('originPosition as Object after change: $originPosition');
+  print('originPosition value after change: $originPosition');
 
   // LatLng pos2 = originPosition._fromJson(pos);
 }
