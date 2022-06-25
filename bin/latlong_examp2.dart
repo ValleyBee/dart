@@ -8,7 +8,6 @@ typedef json = Map<String, double>;
 
 extension JsonPosition on LatLng {
   /* json type aliases */
-
 /* method from instanse Object to Map() */
   json _toJson() => {'latitude': latitude, 'longitude': longitude};
 
