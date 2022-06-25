@@ -28,7 +28,6 @@ void main(List<String> args) {
   LatLng originPosition = new LatLng(23.333, 44.333);
   print('ref.loc. var originPosition, value: $originPosition');
   json pos = originPosition._toJson(); // {latitude: 23.333, longitude: 44.333}
-
   print('-- ' * 20);
   print('ref.loc. var pos, value before change: $pos');
   print('-- ' * 20);
