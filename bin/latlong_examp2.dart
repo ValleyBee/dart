@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:latlong2/latlong.dart';
 import 'package:test/expect.dart';
 
@@ -7,15 +9,15 @@ typedef json = Map<String, double>;
 extension JsonPosition on LatLng {
   /* json type aliases */
 
-  json _toJson() =>
-      {'latitude': latitude, 'longitude': longitude}; /*  method from instanse Object Map() */
+/* method from instanse Object to Map() */
+  json _toJson() => {'latitude': latitude, 'longitude': longitude};
 
+/*method form from Map() to instance Object */
   LatLng _fromJson(json data) {
-    /*method create an instanse of Class from json Map()*/
-    return new LatLng(data['latitude'] as double, data['longitude-'] as double);
+    return new LatLng(data['latitude'] as double, data['longitude'] as double);
   }
 
-  void fromJsonChange(json data) {
+  void _fromJsonChange(json data) {
     latitude = data['latitude'] as double;
     longitude = data['longitude'] as double;
   }
@@ -26,22 +28,27 @@ extension JsonPosition on LatLng {
 // 49.8397° N, 24.0297° E
 void main(List<String> args) {
   LatLng originPosition = new LatLng(23.333, 44.333);
-  print('ref.loc. var originPosition, value: $originPosition');
-  json pos = originPosition._toJson(); // {latitude: 23.333, longitude: 44.333}
+
+  Map<String, double> newCoordinats = {'latitude': 22.22, 'longitude': 44.44};
+
+  json pos = originPosition._toJson(); //convert Obj to Map({})
   print('-- ' * 20);
-  print('ref.loc. var pos, value before change: $pos');
+  print('ref.loc. var pos, convert Obj to Map  : $pos');
   print('-- ' * 20);
-  pos['latitude'] = 77.777; // change latitude
-  print('pos, value lat after changed: $pos'); // Map({})
+  pos['latitude'] = 77.777; // change only value latitude
+  print('pos, value `latitude` changed: $pos');
   print('-- ' * 20);
-  print('originPosition, value before change: $originPosition');
+  print('ref.loc.var Obj originPosition,value: $originPosition');
   print('-- ' * 20);
 
-  originPosition.fromJsonChange(pos); // change originalPosition of latitude
-  print('originPosition value after change: $originPosition');
+  originPosition._fromJsonChange(pos); // change originalPosition only value latitude
+  originPosition._fromJsonChange(newCoordinats); // change all
+
+  print('Obj originPosition, value after change: $originPosition');
+  print('-- ' * 20);
 
   // LatLng pos2 = originPosition._fromJson(pos);
   print('-- ' * 20);
-  print(originPosition.runtimeType);
+  print(originPosition.runtimeType); // check type var
   print(pos.runtimeType);
 }
