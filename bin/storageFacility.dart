@@ -1,14 +1,16 @@
 // Example of use Abstract class as interface and Implimentation it
 class Item {
-  late final String name;
-  late double weight;
-  Item(this.name, this.weight);
+  late int itemId;
+  late final String itemName;
+  late double itemWeight;
+  Item(this.itemId, this.itemName, this.itemWeight);
 }
 
 // Interface
 abstract class StorageFacilitySystem {
   void addItem(Item item);
   double facilityWeight();
+  void removeItem(int itemId);
 }
 
 // BOX
@@ -20,11 +22,11 @@ class Box implements StorageFacilitySystem {
   @override
   void addItem(Item item) {
     double currentFacilityWeight = facilityWeight();
-    if ((currentFacilityWeight + item.weight) < weightLimitBox) {
+    if ((currentFacilityWeight + item.itemWeight) < weightLimitBox) {
       itemList.add(item);
-      print('${item.name} added successfully');
+      print('${item.itemName} added successfully');
     } else {
-      print('${item.name} too big');
+      print('${item.itemName} too big');
     }
   }
 
@@ -32,9 +34,20 @@ class Box implements StorageFacilitySystem {
   double facilityWeight() {
     double totalBoxWeight = 0;
     for (var item in itemList) {
-      totalBoxWeight = totalBoxWeight + item.weight;
+      totalBoxWeight = totalBoxWeight + item.itemWeight;
     }
     return totalBoxWeight;
+  }
+
+  @override
+  void removeItem(int itemId) {
+    for (Item item in itemList) {
+      if (item.itemId == itemId) {
+        itemList.remove(item);
+        print('item `${item.itemId} ${item.itemName}` has been remobved');
+        return;
+      }
+    }
   }
 }
 //END BOX
@@ -49,11 +62,11 @@ class BigBox implements StorageFacilitySystem {
   @override
   void addItem(Item item) {
     double currentFacilityWeight = facilityWeight();
-    if ((currentFacilityWeight + item.weight) < weightLimitBigBox) {
+    if ((currentFacilityWeight + item.itemWeight) < weightLimitBigBox) {
       itemList.add(item);
-      print('${item.name} added successfully');
+      print('${item.itemName} added successfully');
     } else {
-      print('${item.name} too big');
+      print('${item.itemName} too big');
     }
   }
 
@@ -61,9 +74,20 @@ class BigBox implements StorageFacilitySystem {
   double facilityWeight() {
     double totalBoxWeight = 0;
     for (var item in itemList) {
-      totalBoxWeight = totalBoxWeight + item.weight;
+      totalBoxWeight = totalBoxWeight + item.itemWeight;
     }
     return totalBoxWeight;
+  }
+
+  @override
+  void removeItem(int itemId) {
+    for (Item item in itemList) {
+      if (item.itemId == itemId) {
+        itemList.remove(item);
+        print('item `${item.itemId} ${item.itemName}` has been remobved');
+        return;
+      }
+    }
   }
 }
 
@@ -72,13 +96,16 @@ void main(List<String> args) {
   StorageFacilitySystem storageFacilitySystem = box;
   // Item item = new Item('test', 11);
   // storageFacilitySystem.addItem(item);
-  storageFacilitySystem.addItem(new Item('Book', 2));
-  storageFacilitySystem.addItem(new Item('Magazin', 1));
+  storageFacilitySystem.addItem(new Item(1, 'Book', 2));
+  storageFacilitySystem.addItem(new Item(2, 'Magazin', 1));
+  storageFacilitySystem.addItem(new Item(3, 'Letters', 1));
+  storageFacilitySystem.addItem(new Item(2, 'Documents', 3));
 
   BigBox bigBox = new BigBox(45.00); // capacity
   storageFacilitySystem = bigBox;
-  storageFacilitySystem.addItem(new Item('Sets of Books', 20));
-  storageFacilitySystem.addItem(new Item('Sets of Magazins', 15));
+  storageFacilitySystem.addItem(new Item(1, 'Sets of Books', 20));
+  storageFacilitySystem.addItem(new Item(2, 'Sets of Magazins', 15));
+  storageFacilitySystem.addItem(new Item(2, 'Sets of Documents', 5));
 
   // TotalWeight method
   double totalWeight(StorageFacilitySystem storage) {
@@ -90,4 +117,7 @@ void main(List<String> args) {
 
   print(totalWeight(box));
   print(totalWeight(bigBox));
+
+  box.removeItem(1);
+  print(totalWeight(box));
 }
