@@ -1,82 +1,66 @@
 class Item {
-  late int id;
-  late String name;
-  late double weight;
-
-  // Item(this.id, this.name, this.weight);
-  Item(int id, String name, double weight) {
-    this.name = name;
-    this.weight = weight;
-    this.id = id;
-  }
+  late int itemId;
+  late String itemName;
+  late double itemWeight;
+  Item(this.itemId, this.itemName, this.itemWeight);
 }
 
-abstract class StorageFacilitySystem {
+abstract class StorageSystem {
+  int a = 0;
   void addItem(Item item);
+  void removeItem(int itemId);
   double totalWeight();
 }
 
-class Box extends StorageFacilitySystem {
-  final double boxCapacity = 23.5;
+class Box extends StorageSystem {
+  final double _capacity = 23.50;
   List<Item> box = [];
 
   @override
   void addItem(Item item) {
-    if (totalWeight() + item.weight <= boxCapacity) {
+    if (item.itemWeight + totalWeight() <= _capacity) {
       box.add(item);
-      print('${item.id} ${item.name} add to storage Box');
+      print('item `${item.itemName}` add success');
     } else {
-      print('Box is full or the item `${item.name}` is too big');
+      print('item `${item.itemName}` is too big can`t add');
     }
   }
 
   @override
   double totalWeight() {
-    double total = 0;
+    double result = 0;
+    for (Item item in box) {
+      result += item.itemWeight;
+    }
+    return result;
+  }
+
+  @override
+  void removeItem(int itemId) {
+    for (Item item in box) {
+      if (item.itemId == itemId) {
+        box.remove(item);
+        print('item `${item.itemId} ${item.itemName}` has been remobved');
+        return;
+      }
+    }
+  }
+
+  void listItems() {
     box.forEach((element) {
-      total += element.weight;
+      print('${element.itemId} ${element.itemName}');
     });
-    return total;
-  }
-
-  int idN() {
-    return box.length + 1;
-  }
-}
-
-class BigBox extends StorageFacilitySystem {
-  final double boxCapacity = 230.50;
-  List<Item> bigBox = [];
-  @override
-  void addItem(Item item) {
-    bigBox.add(item);
-    print('${item.id} ${item.name} add to storage bigBox');
-  }
-
-  @override
-  double totalWeight() {
-    return 2;
-  }
-
-  int idN() {
-    return bigBox.length + 1;
   }
 }
 
 void main(List<String> args) {
-  Box box = new Box();
-  BigBox bigBox = new BigBox();
-  StorageFacilitySystem storage = box;
+  Box smallBox = new Box();
+  StorageSystem storage = smallBox;
+  storage.addItem(new Item(1, 'book', 1.5));
+  storage.addItem(new Item(2, 'letter', 0.5));
+  storage.addItem(new Item(3, 'magazin', 1.0));
+  storage.removeItem(2);
+  storage.addItem(new Item(4, 'letter2', 0.5));
 
-  storage.addItem(new Item(box.idN(), 'book', 2.0));
-  storage.addItem(new Item(box.idN(), 'magazin', 1.0));
-
-  storage.addItem(new Item(box.idN(), 'fast folder', 20.1));
-  storage.addItem(new Item(box.idN(), 'fileds holder', 0.4));
-
-  storage = bigBox;
-  storage.addItem(new Item(bigBox.idN(), 'set of books', 20.0));
-  storage.addItem(new Item(bigBox.idN(), 'set of magazin', 15.0));
-
-  print(box.totalWeight());
+  smallBox.listItems();
 }
