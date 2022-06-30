@@ -140,3 +140,24 @@ void main(List<String> args) {
   print(Shape(new Circle(2)));
   //print(Shape('Square').area);
 }
+
+
+/*  Subclass extend a superclass, having a generic type of the subclass extend a type of the superclass
+
+class SomeValue {}
+
+class ExtendedValue extends SomeValue {}
+
+abstract class SomeController<T extends SomeValue> extends ValueNotifier<T> {
+  SomeController(T value) : super(value);
+}
+
+class ExtendedController extends SomeController {
+  ExtendedController(ExtendedValue value) : super(value);
+
+  factory ExtendedController.create() {
+    return ExtendedController(ExtendedValue());
+  }
+}
+
+ */

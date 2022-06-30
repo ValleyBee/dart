@@ -1,15 +1,25 @@
 // GENERICS
-class Item {
+class Item<T> {
   late int id;
+  // /late T anyId;
   late String name;
   late double price;
+
   Item(this.id, this.name, this.price);
 }
 
 class MyID {
-  late int id;
+  late int myId;
   late String idAsString;
-  MyID(this.id) : idAsString = id.toString();
+
+  MyID(int myId) {
+    this.myId = myId;
+    idAsString = myId.toString();
+  }
+  @override
+  String toString() {
+    return idAsString;
+  }
 }
 
 class Magazin extends Item {
@@ -43,14 +53,16 @@ class Box<T extends Item> {
   void operator +(T book) {
     items.add(book);
   }
-  // late T id;
-  // late String name;
-  // late double price;
+}
 
-  //Product(this.id, this.name, this.price);
-
-  // T getId() => id;
-  // void setId(T idAsString) => id = idAsString;
+T? firstElement<T>(List<T> list) {
+  T? result;
+  for (int i = 0; i < (list.length); i++) {
+    result = list[i];
+    print('-- $result');
+  }
+  ;
+  return result;
 }
 
 void main(List<String> args) {
@@ -62,5 +74,29 @@ void main(List<String> args) {
   box + Magazin(3, 'Dart best', 44);
   box.printListItems();
 
-  //Box box = new Box();
+  List<MyID> list = <MyID>[MyID(1), MyID(2)];
+  print('*' * 30);
+  print(firstElement(list));
+
+  Person person1 = new Person(1, 'dd');
+  Person person2 = new Person('two', 'agant Stealth', 'EF#2');
+  print('*' * 30);
+  print(person1);
+  print(person1.anyTypeId.runtimeType);
+  print(person2);
+  print(person2.anyTypeId.runtimeType);
 }
+
+class Person<T> {
+  late T? anyTypeId;
+  late String name;
+  late String? code;
+  Person(this.anyTypeId, this.name, [this.code]);
+
+  @override
+  String toString() {
+    return 'anyType: $anyTypeId  name: $name  code: $code';
+  }
+}
+
+//class 
