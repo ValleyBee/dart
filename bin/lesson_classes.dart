@@ -1,3 +1,5 @@
+import 'dart:math';
+
 class BigBox {
   int _id = 1;
   late String s;
@@ -87,6 +89,36 @@ class Car implements Vehicle {
     print('overrided method from Vehicle');
   }
 }
+// Abscract class with factoty constractor as interface
+
+abstract class Shape {
+  factory Shape(Shape type) {
+    //print(type.runtimeType);
+    if (type.runtimeType == Circle) return Circle(2);
+    if (type.runtimeType == Square) return Square(2);
+    throw 'can`t create $type';
+  }
+  num? get area;
+}
+
+class Circle implements Shape {
+  late final num radius;
+  Circle([this.radius = 0]);
+
+  @override
+  num get area {
+    return pi * pow(radius, 2);
+  }
+}
+
+class Square implements Shape {
+  final num side;
+  Square(this.side);
+  @override
+  num get area {
+    return pow(side, 2);
+  }
+}
 
 void main(List<String> args) {
   SmallBox sb = new SmallBox(3, 'str');
@@ -103,4 +135,8 @@ void main(List<String> args) {
   Car car = new Car(2, 'ss');
   Vehicle vh = new Vehicle(1, 's');
   car.info2();
+//***************** */
+
+  print(Shape(new Circle(2)));
+  //print(Shape('Square').area);
 }
