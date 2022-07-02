@@ -1,7 +1,6 @@
 // GENERICS
-class Item<T> {
+class Item {
   late int id;
-  // /late T anyId;
   late String name;
   late double price;
 
@@ -27,6 +26,10 @@ class Magazin extends Item {
   late String name;
   late double price;
   Magazin(this.id, this.name, this.price) : super(id, name, price);
+  @override
+  String toString() {
+    return 'id: $id  name: $name  price: $price';
+  }
 }
 
 class Book extends Item {
@@ -37,6 +40,11 @@ class Book extends Item {
 
   Box operator +(Book otherBook) {
     return Box([this, otherBook]);
+  }
+
+  @override
+  String toString() {
+    return 'id: $id  name: $name  price: $price';
   }
 }
 
@@ -55,48 +63,70 @@ class Box<T extends Item> {
   }
 }
 
-T? firstElement<T>(List<T> list) {
-  T? result;
+void firstElement<T>(List<T> list) {
   for (int i = 0; i < (list.length); i++) {
-    result = list[i];
-    print('-- $result');
+    print('- ${list[i]}');
   }
-  ;
-  return result;
 }
 
 void main(List<String> args) {
-  Book book1 = new Book(1, 'book1', 22);
-  Book book2 = new Book(2, 'book2', 33);
-  var box = book1 + book2;
+  Book book1 = new Book(1, 'book1', 11.11);
+  Book book2 = new Book(2, 'book2', 22.22);
+  Book book3 = new Book(3, 'book3', 33.33);
+  Box<Item> box = new Box<Item>([]);
+  box + book1;
+  box + book2;
+  box + book3;
+  box + new Book(4, 'book4', 55.55);
   box.printListItems();
   print('*' * 30);
-  box + Magazin(3, 'Dart best', 44);
+  box + Magazin(5, 'Dart_best', 64.64);
   box.printListItems();
 
   List<MyID> list = <MyID>[MyID(1), MyID(2)];
   print('*' * 30);
-  print(firstElement(list));
-
-  Person person1 = new Person(1, 'dd');
-  Person person2 = new Person('two', 'agant Stealth', 'EF#2');
+  firstElement(list);
+  firstElement(box.items);
+/* **************************************** */
+  Person person1 = new Person(id: 1, name: 'dude');
+  Person person2 = new Person(id: 2, name: 'agant Stealth', code: 'EF#2'); // type String
+  Person person3 = new Person(id: 3, name: 'agant Stealth', code: book1); // type Class Book
   print('*' * 30);
   print(person1);
-  print(person1.anyTypeId.runtimeType);
+  print(person1.code.runtimeType);
   print(person2);
-  print(person2.anyTypeId.runtimeType);
+  print(person2.code.runtimeType);
+  print(person3.code.runtimeType);
+  print(person3);
+  print('*' * 30);
+  Alex alex = new Alex('xxx777');
+  print(alex);
+  Group group = new Group(person1);
+  print(group);
 }
 
+/* ******************* */
 class Person<T> {
-  late T? anyTypeId;
-  late String name;
-  late String? code;
-  Person(this.anyTypeId, this.name, [this.code]);
+  late int? id;
+  late String? name;
+  late T? code;
+  Person({required this.id, required this.name, this.code});
 
   @override
   String toString() {
-    return 'anyType: $anyTypeId  name: $name  code: $code';
+    return 'id: $id  name: $name  Specialcode: ($code)';
   }
 }
 
-//class 
+class Alex<T> extends Person {
+  //late int id = 1;
+  late T anyId;
+  //late String name;
+
+  Alex(this.anyId) : super(id: 1, name: 'alex', code: anyId);
+}
+
+class Group<T extends Person> extends Person {
+  late T anyPerson;
+  Group(this.anyPerson) : super(id: 0, name: '', code: anyPerson);
+}
