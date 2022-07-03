@@ -67,15 +67,16 @@ void main(List<String> args) {
 // call
   myFunction();
 
-  print('E X A M P L E - Function Lexical Closure)');
+  print('E X A M P L E - Function Lexical Closure');
   Function addFunction(int add) {
     return (int i) => add + i;
   }
 
-  var add2 = addFunction(2);
-  var add4 = addFunction(4);
-
-  print(add2(3)); // put args to inside (int i)
+  Function add1 = addFunction(1);
+  var add2 = addFunction(1)(add1(1));
+  var add3 = addFunction(1)(1); // put args to inside (int i)
+  print(add2); // 3
+  print(add3); // 2
 
   print('E X A M P L E - V netsted Function and Lexical Closure scope)');
 
