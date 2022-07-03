@@ -1,9 +1,19 @@
+// Coffee Machine
 import 'dart:async';
 
+import 'package:test/expect.dart';
+
 class CoinReceiver {
-  final _addCoin = StreamController<int>();
+  final StreamController<int> _addCoin = new StreamController<int>(); // Create a new stream
+
   Stream<int> get dataStream => _addCoin.stream;
+
   void addCoin(int coin) => _addCoin.add(coin);
+}
+
+class Coin {
+  final int value;
+  Coin(this.value);
 }
 
 class CofeeMachine {
@@ -25,10 +35,18 @@ class CofeeMachine {
 
 void main(List<String> args) {
   print('start main');
+  print('*' * 30);
   CoinReceiver coinreceiver = new CoinReceiver();
   CofeeMachine cofeemachine = new CofeeMachine(coinreceiver.dataStream);
+
   coinreceiver.addCoin(5);
   coinreceiver.addCoin(10);
   coinreceiver.addCoin(16);
+
   print('finish main');
+  f();
+}
+
+void f() {
+  print('*' * 30);
 }
