@@ -1,52 +1,43 @@
-// Coffee Machine
+// Stream
 import 'dart:async';
+//import 'dart:html';
+import 'dart:math';
 
-import 'package:test/expect.dart';
-
-class CoinReceiver {
-  final StreamController<int> _addCoin = new StreamController<int>(); // Create a new stream
-
-  Stream<int> get dataStream => _addCoin.stream;
-
-  void addCoin(int coin) => _addCoin.add(coin);
+Stream<int> myGenerator(int last) async* {
+  for (int i = 0; i <= last; i++) {
+    yield i;
+  }
 }
 
-class Coin {
-  final int value;
-  Coin(this.value);
+Stream<int> _ints() async* {
+  yield* Stream.periodic(Duration(seconds: 1), (int a) {
+    return a++;
+  });
 }
 
-class CofeeMachine {
-  int coinValue = 0;
+Stream<String> _strings() async* {
+  String str = "QWERTYUIOPASDFGHJKL";
+  Random rn = new Random();
+  yield* Stream.periodic(Duration(seconds: 1), (int a) {
+    return str[rn.nextInt(str.length)];
+  });
+}
 
-  CofeeMachine(Stream<int> stream) {
-    stream.listen(addCoin);
-  }
-
-  void addCoin(int coin) {
-    coinValue += coin;
-    print('add coins: $coin total coins $coinValue');
-    if (coinValue >= 30) {
-      print('preraring your coffee...');
-      print('Your coffee is ready!');
-    }
-  }
+void createGenerator(int lastValue) async {
+  Stream<int> stream = myGenerator(lastValue);
+  // stream.listen((event) {
+  //   print('event:$event');
+  // });
+  StreamSubscription subscription = stream.listen((event) {
+    print('event:$event');
+  });
 }
 
 void main(List<String> args) {
+  Stream<int> a = _ints();
+  a.listen((event) => print(event));
+
   print('start main');
-  print('*' * 30);
-  CoinReceiver coinreceiver = new CoinReceiver();
-  CofeeMachine cofeemachine = new CofeeMachine(coinreceiver.dataStream);
-
-  coinreceiver.addCoin(5);
-  coinreceiver.addCoin(10);
-  coinreceiver.addCoin(16);
-
-  print('finish main');
-  f();
-}
-
-void f() {
-  print('*' * 30);
+  //createGenerator(30);
+  print('stop main');
 }
