@@ -12,7 +12,7 @@ Stream<int> myGenerator(int last) async* {
 Stream<int> _ints() async* {
   yield* Stream.periodic(Duration(seconds: 1), (int a) {
     return a++;
-  });
+  }).take(10);
 }
 
 Stream<String> _strings() async* {
@@ -20,7 +20,7 @@ Stream<String> _strings() async* {
   Random rn = new Random();
   yield* Stream.periodic(Duration(seconds: 1), (int a) {
     return str[rn.nextInt(str.length)];
-  });
+  }).take(10);
 }
 
 void createGenerator(int lastValue) async {
@@ -36,6 +36,9 @@ void createGenerator(int lastValue) async {
 void main(List<String> args) {
   Stream<int> a = _ints();
   a.listen((event) => print(event));
+
+  a.map((event) => event + 1);
+  print(a);
 
   print('start main');
   //createGenerator(30);
