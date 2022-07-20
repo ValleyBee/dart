@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'dart:math';
 import 'dart:convert';
-import 'dart:io';
 
 class Test1 {}
 
@@ -15,14 +14,6 @@ void main(List<String> args) {
   void len(int a) {
     List<int> list2 = list.map((e) => e.length).toList();
     print(list2);
-  }
-
-  File file = new File('file.txt');
-  Future<String> fileContents = file.readAsString();
-
-  String fileOut() {
-    fileContents.then((String msg) => msg.toString());
-    return 'ok';
   }
 
   Stream<String> aa;

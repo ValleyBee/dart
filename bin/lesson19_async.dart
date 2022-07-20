@@ -38,7 +38,7 @@ void main(List<String> args) {
   a.listen((event) => print(event));
 
   a.map((event) => event + 1);
-  print(a);
+  print('map: $a');
 
   print('start main');
   //createGenerator(30);

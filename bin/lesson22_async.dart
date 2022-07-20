@@ -1,27 +1,42 @@
 import 'dart:async';
 import 'dart:math';
+import 'dart:io';
 
 void main(List<String> args) async {
   Future<int> aFuture = aCompletely();
-  print(await aFuture);
+  print('aCompletely: ${await aFuture}');
 
   Future<String> bFuture = bCompletely();
-  print(await bFuture);
+  print('bCompletely: ${await bFuture}');
   // String bFuture = await bCompletely();
-  // print(bFuture);
+  // print('bCompletely: $bFuture');
 
   CompleteExample example = new CompleteExample();
   String cFuture = await example.cCompletely();
-  print(cFuture);
+  print('cCompletely: ${cFuture}');
 
-  print('from simple method: ${example.eExpl()}');
+  print('from Class method: ${example.eExpl()}');
+
+  File file = new File('file.txt');
+
+  var output = file.readAsString().then((value) => {
+        if (value.contains('Jestem')) {print(value)}
+      });
+
+  Future<bool> fileContainsBear(String path) {
+    return File(path).readAsString().then((contents) {
+      return contents.contains('Jestem');
+    });
+  }
+
+  var out = fileContainsBear('file.txt');
 }
 
 Future<int> aCompletely() {
   Completer<int> c = new Completer();
 
-  for (int i = 0; i < 100000; i++) {
-    if (i == 6454) {
+  for (int i = 0; i < 1000000; i++) {
+    if (i == 645400) {
       c.complete(i);
       break;
     }
