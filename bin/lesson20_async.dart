@@ -3,8 +3,6 @@ import 'dart:math';
 import 'dart:convert';
 import 'dart:io';
 
-import 'lesson21_stream.dart';
-
 class Test1 {}
 
 void main(List<String> args) {
