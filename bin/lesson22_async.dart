@@ -19,13 +19,17 @@ void main(List<String> args) async {
 
   File file = new File('file.txt');
 
-  var output = file.readAsString().then((value) => {
-        if (value.contains('Jestem')) {print(value)}
-      });
+  // var output = file.readAsString().then((value) => {
+  //       if (value.contains('Jestem')) {print(value)}
+  //     });
 
   Future<bool> fileContainsBear(String path) {
-    return File(path).readAsString().then((contents) {
-      return contents.contains('Jestem');
+    return new File(path).readAsString().then((contents) {
+      if (contents.contains('Jestem')) {
+        print(contents);
+        return true;
+      }
+      return false;
     });
   }
 
