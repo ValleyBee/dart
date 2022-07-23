@@ -32,8 +32,6 @@ void main(List<String> args) async {
       return false;
     });
   }
-
-  var out = fileContainsBear('file.txt');
 }
 
 Future<int> aCompletely() {
