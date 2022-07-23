@@ -37,7 +37,7 @@ Future<String> readfileAsStream() async {
 
 Stream<List<int>> readfileAsLines() async* {
   File file = new File("file.csv");
-  yield* file.openRead();
+  yield* file.openRead(0, 1000);
 }
 
 Future<String> shortWait() {
